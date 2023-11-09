@@ -43,6 +43,15 @@ public abstract class Client {
     public static JsonObject responseToJson(HttpResponse<String> response) {
         return JsonParser.parseString(response.body()).getAsJsonObject();
     }
+
+    public static String convertDOBToDashFormat(String dob) {
+        String day = (String) dob.subSequence(0,2);
+        String month = (String) dob.subSequence(3,5);
+        String year = (String) dob.subSequence(5,10);
+        String newDob = (year + "-" + month + "-" + day).substring(1);
+        return newDob;
+    }
+
     protected static String getFormDataAsString(Map<String, String> formData) {
         StringBuilder formBodyBuilder = new StringBuilder();
         for (Map.Entry<String, String> singleEntry : formData.entrySet()) {

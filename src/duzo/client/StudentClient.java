@@ -1,6 +1,11 @@
 package duzo.client;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import duzo.homework.Homework;
+import duzo.reward.Reward;
 
 import java.io.IOException;
 import java.net.HttpCookie;
@@ -8,6 +13,7 @@ import java.net.URI;
 import java.net.URLDecoder;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,5 +58,49 @@ public class StudentClient extends Client {
         this.sessionId = JsonParser.parseString(URLDecoder.decode(httpCookie.getValue())).getAsJsonObject().get("session_id").getAsString();
         this.lastPing = currentDate();
         this.updateInformation();
+    }
+
+    protected JsonArray getRewardsJson() throws IOException, InterruptedException {
+        return getJsonResponse("rewards").getAsJsonArray();
+    }
+    public List<Reward> getRewards() throws IOException, InterruptedException {
+        List<Reward> list = new ArrayList<>();
+
+        for (JsonElement element : this.getRewardsJson()) {
+            list.add(Reward.fromJson(element.getAsJsonObject()));
+        }
+
+        return list;
+    }
+
+    /**
+     * Refuse to test, dont wanna waste my points.
+     * @param itemId
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public void purchaseReward(int itemId) throws IOException, InterruptedException {
+        this.makeApiRequest(
+                this.API_BASE + "/purchase/" + itemId,
+                true,
+                HttpRequest.BodyPublishers.ofString("pupil_id=" + this.studentId)
+        );
+    }
+    public void purchaseReward(Reward reward) throws IOException, InterruptedException {
+        this.purchaseReward(reward.getId());
+    }
+
+    // @TODO doesnt appear to work
+    public String getStudentCode() throws IOException, InterruptedException {
+        System.out.println(convertDOBToDashFormat(this.dateOfBirth));
+        JsonObject date = new JsonObject();
+        date.addProperty("date",convertDOBToDashFormat(this.dateOfBirth));
+        HttpResponse<String> response = this.makeApiRequest(
+                this.API_BASE + "/getcode",
+                true,
+                HttpRequest.BodyPublishers.ofString(date.toString())
+        );
+        System.out.println(date.toString());
+        return response.body();
     }
 }
