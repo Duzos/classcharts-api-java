@@ -1,14 +1,16 @@
-package duzo.client;
+package api.duzo.client;
 
+import api.duzo.announcement.Announcement;
+import api.duzo.homework.Homework;
+import api.duzo.point.BehaviourPoint;
+import api.duzo.student.StudentInformation;
+import api.duzo.timetable.DayTimetable;
 import com.google.gson.*;
-import duzo.announcement.Announcement;
-import duzo.homework.Homework;
-import duzo.point.BehaviourPoint;
-import duzo.student.StudentInformation;
-import duzo.timetable.DayTimetable;
 
 import java.io.IOException;
-import java.net.*;
+import java.net.HttpCookie;
+import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;

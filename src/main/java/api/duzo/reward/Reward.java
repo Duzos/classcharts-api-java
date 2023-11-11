@@ -1,7 +1,6 @@
-package duzo.reward;
+package api.duzo.reward;
 
 import com.google.gson.JsonObject;
-import duzo.student.StudentInformation;
 
 public class Reward {
     private int id,price,stock,purchasedCount,priceBalanceDifference;

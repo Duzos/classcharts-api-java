@@ -1,10 +1,8 @@
-package duzo.homework;
+package api.duzo.homework;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import duzo.point.BehaviourPoint;
-import duzo.point.PointType;
 
 import java.util.ArrayList;
 import java.util.List;

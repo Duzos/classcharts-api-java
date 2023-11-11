@@ -1,11 +1,10 @@
-package duzo.client;
+package api.duzo.client;
 
+import api.duzo.reward.Reward;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import duzo.homework.Homework;
-import duzo.reward.Reward;
 
 import java.io.IOException;
 import java.net.HttpCookie;
@@ -22,6 +21,11 @@ public class StudentClient extends Client {
     private String studentCode = "";
     private String dateOfBirth = "";
 
+    /**
+     * Creates a client
+     * @param studentCode
+     * @param dateOfBirth in format DD/MM/YYYY
+     */
     public StudentClient(String studentCode, String dateOfBirth) {
         super("https://www.classcharts.com/apiv2student");
         this.studentCode = studentCode;

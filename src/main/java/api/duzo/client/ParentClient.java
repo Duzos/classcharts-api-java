@@ -1,4 +1,4 @@
-package duzo.client;
+package api.duzo.client;
 
 import java.io.IOException;
 

@@ -1,8 +1,8 @@
-package duzo.announcement;
+package api.duzo.announcement;
 
 import com.google.gson.JsonObject;
-import duzo.point.BehaviourPoint;
-import duzo.point.PointType;
+import api.duzo.point.BehaviourPoint;
+import api.duzo.point.PointType;
 
 public class Announcement {
     private int id;

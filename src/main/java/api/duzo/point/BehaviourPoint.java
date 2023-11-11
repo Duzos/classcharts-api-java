@@ -1,8 +1,6 @@
-package duzo.point;
+package api.duzo.point;
 
 import com.google.gson.JsonObject;
-
-import java.awt.*;
 
 public class BehaviourPoint {
     private int id, score;

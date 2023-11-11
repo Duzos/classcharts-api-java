@@ -1,2 +1,3 @@
-src/duzo/tests
-out
+.gradle
+.idea
+build

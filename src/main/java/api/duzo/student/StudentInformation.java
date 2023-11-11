@@ -1,8 +1,6 @@
-package duzo.student;
+package api.duzo.student;
 
 import com.google.gson.JsonObject;
-import duzo.point.BehaviourPoint;
-import duzo.point.PointType;
 
 public class StudentInformation {
     private int id,announcementsCount,messagesCount;

@@ -1,6 +1,4 @@
-package duzo.point;
-
-import java.io.Serializable;
+package api.duzo.point;
 
 public enum PointType {
     POSITIVE("positive"),

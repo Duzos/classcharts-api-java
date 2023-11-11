@@ -1,4 +1,4 @@
-package duzo.timetable;
+package api.duzo.timetable;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

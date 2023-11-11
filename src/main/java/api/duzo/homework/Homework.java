@@ -1,11 +1,6 @@
-package duzo.homework;
+package api.duzo.homework;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
-import java.sql.Date;
-import java.time.LocalDate;
 
 public class Homework {
     private int id;

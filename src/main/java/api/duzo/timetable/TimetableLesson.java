@@ -1,8 +1,6 @@
-package duzo.timetable;
+package api.duzo.timetable;
 
 import com.google.gson.JsonObject;
-import duzo.homework.Homework;
-import duzo.homework.HomeworkStatus;
 
 public class TimetableLesson {
     private int id, periodNumber,key;
